@@ -1,4 +1,4 @@
-name: INputs Demo
+name: Inputs Demo
 on:
   workflow_dispatch:
     inputs:
