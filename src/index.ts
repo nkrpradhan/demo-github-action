@@ -3,6 +3,6 @@ interface sumParams {
   b: number;
 }
 
-function sum(x:sumParams): number {
+export function sum(x:sumParams): number {
   return x.a + x.b;
 }
