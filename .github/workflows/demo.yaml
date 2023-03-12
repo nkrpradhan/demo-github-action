@@ -1,4 +1,4 @@
-name: Deploy project
+name: Demo project
 on:
   workflow_dispatch:
     inputs:
