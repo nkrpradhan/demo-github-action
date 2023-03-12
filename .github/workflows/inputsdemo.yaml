@@ -1,4 +1,4 @@
-name: Demo project
+name: INputs Demo
 on:
   workflow_dispatch:
     inputs:
@@ -9,6 +9,7 @@ on:
         options:
           - info
           - warning
+          - debug
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -23,5 +24,9 @@ jobs:
         run: npm ci
       - name: Run test
         run: npm test
-      - name: Print inputs
+      - name: Print inputs info
         run: echo Input is ${{inputs.logLevel}}
+        if: ${{ inputs.logLevel == 'info' }}
+      - name: Print warning inputs
+        run: echo Input is ${{inputs.logLevel}}
+        if: ${{ inputs.logLevel == 'warning' }}
