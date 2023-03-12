@@ -1,0 +1,27 @@
+name: Deploy project
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        type: choice
+        description: "Log level"
+        required: true
+        options:
+          - info
+          - warning
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci
+      - name: Run test
+        run: npm test
+      - name: Print inputs
+        run: echo Input is ${{inputs.logLevel}}
